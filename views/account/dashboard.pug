@@ -1,0 +1,21 @@
+extend account
+
+append content
+  h3 Dashboard
+  p Hello, #{name} welcome to the dashboard
+
+  h5 My Favorite Albums
+
+  if !favAlbums.length
+    p No favorite albums yet, add one below
+
+  if favAlbums.length
+    each album in favAlbums
+      li= album.title
+
+  hr
+  form.form-inline(method="POST" action="/account/add")
+    .form-group.mb-2
+      label.sr-only(for="title") Title
+      input#title.form-control(name="title" type='text' placeholder="Enter name of album")
+    button.btn.btn-primary.mb-2 Add

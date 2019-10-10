@@ -1,0 +1,8 @@
+extend layout
+
+block content
+  ul
+  each subgenre in subgenres
+    li
+      - var urlSlug = subgenre.slug
+      a(href="/metal/subgenre/" + urlSlug)= subgenre.title
